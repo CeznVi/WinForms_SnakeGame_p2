@@ -11,7 +11,7 @@ namespace SnakeGame
 {
     class GameField
     {
-        public int GameTickTime = 300;
+        public int GameTickTime = 1000;
         private PictureBox _gameFieldControl;
         
         public Food Food { get; set; }

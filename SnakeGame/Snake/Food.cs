@@ -19,12 +19,6 @@ namespace SnakeGame.Snake
            
         }
 
-
-        //public Food(int x, int y, int radius) : base(x, y, radius)
-        //{
-        //    _random = new Random();
-        //}
-
         public void Draw(Graphics graphics)
         {
             Bitmap bitmap = new Bitmap(GameResource.snake_apple);

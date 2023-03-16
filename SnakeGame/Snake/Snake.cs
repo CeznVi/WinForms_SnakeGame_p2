@@ -19,9 +19,8 @@ namespace SnakeGame.Snake
 
             _snake.Add(new HeadSnake(60,60,15,Direction.UP));
             _snake.Add(new SegmentSnake(60, 90, Head.Radius, Direction.UP));
-            //_snake.Add(new SegmentSnake(30, 560, 15, Direction.UP));
-            //_snake.Add(new SegmentSnake(60, 560, 15, Direction.UP));
-            _snake.Add(new TailSnake(60, 120, Head.Radius, Direction.UP));
+            _snake.Add(new SegmentSnake(60, 120, Head.Radius, Direction.UP));
+            _snake.Add(new TailSnake(60, 150, Head.Radius, Direction.UP));
         }
 
         public List<Segment> BodySnake
@@ -105,7 +104,118 @@ namespace SnakeGame.Snake
                 }
                 else if(item is SegmentSnake)
                 {
-                    item.CurrentDirection = lastDir;
+                    ///Angle UP Right
+                    if (lastDir == Direction.RIGHT && currDir == Direction.UP)
+                        item.CurrentDirection = Direction.UR;
+                    else if(lastDir == Direction.UR && currDir == Direction.UP)
+                        item.CurrentDirection = Direction.UR;
+                    else if (lastDir == Direction.DOWN && currDir == Direction.UR)
+                        item.CurrentDirection = Direction.RD;
+                    else if (lastDir == Direction.UP && currDir == Direction.UR)
+                        item.CurrentDirection = Direction.RU;
+                    else if (lastDir == Direction.RD && currDir == Direction.UR)
+                        item.CurrentDirection = Direction.RD;
+                    else if (lastDir == Direction.RU && currDir == Direction.UR)
+                        item.CurrentDirection = Direction.RU;
+                    ///Angle UP LEFT
+                    else if (lastDir == Direction.LEFT && currDir == Direction.UP)
+                        item.CurrentDirection = Direction.UL;
+                    else if (lastDir == Direction.UL && currDir == Direction.UP)
+                        item.CurrentDirection = Direction.UL;
+                    else if (lastDir == Direction.DOWN && currDir == Direction.UL)
+                        item.CurrentDirection = Direction.LD;
+                    else if (lastDir == Direction.UP && currDir == Direction.UL)
+                        item.CurrentDirection = Direction.LU;
+                    else if (lastDir == Direction.LU && currDir == Direction.UL)
+                        item.CurrentDirection = Direction.LU;
+                    else if (lastDir == Direction.LD && currDir == Direction.UL)
+                        item.CurrentDirection = Direction.LD;
+                    ///Angle Down Right
+                    else if (lastDir == Direction.RIGHT && currDir == Direction.DOWN)
+                        item.CurrentDirection = Direction.DR;
+                    else if (lastDir == Direction.DR && currDir == Direction.DOWN)
+                        item.CurrentDirection = Direction.DR;
+                    else if (lastDir == Direction.UP && currDir == Direction.DR)
+                        item.CurrentDirection = Direction.RU;
+                    else if (lastDir == Direction.DOWN && currDir == Direction.DR)
+                        item.CurrentDirection = Direction.RD;
+                    else if (lastDir == Direction.RU && currDir == Direction.DR)
+                        item.CurrentDirection = Direction.RU;
+                    else if (lastDir == Direction.RD && currDir == Direction.DR)
+                        item.CurrentDirection = Direction.RD;
+                    ///Angle Down Left
+                    else if (lastDir == Direction.LEFT && currDir == Direction.DOWN)
+                        item.CurrentDirection = Direction.DL;
+                    else if (lastDir == Direction.DL && currDir == Direction.DOWN)
+                        item.CurrentDirection = Direction.DL;
+                    else if (lastDir == Direction.UP && currDir == Direction.DL)
+                        item.CurrentDirection = Direction.LU;
+                    else if (lastDir == Direction.DOWN && currDir == Direction.DL)
+                        item.CurrentDirection = Direction.LD;
+
+
+
+
+
+
+
+
+
+                    ///Angle Left down!!!!!!!!!!
+                    else if (lastDir == Direction.DOWN && currDir == Direction.LEFT)
+                        item.CurrentDirection = Direction.LD;
+                    else if (lastDir == Direction.LD && currDir == Direction.LEFT)
+                        item.CurrentDirection = Direction.LD;
+                    else if (lastDir == Direction.RIGHT && currDir == Direction.LD)
+                        item.CurrentDirection = Direction.DR;
+                    else if (lastDir == Direction.LEFT && currDir == Direction.LD)
+                        item.CurrentDirection = Direction.DL;
+                    ///Angle Left UP
+                    else if (lastDir == Direction.UP && currDir == Direction.LEFT)
+                        item.CurrentDirection = Direction.LU;
+                    else if (lastDir == Direction.LU && currDir == Direction.LEFT)
+                        item.CurrentDirection = Direction.LU;
+                    else if (lastDir == Direction.LEFT && currDir == Direction.LU)
+                        item.CurrentDirection = Direction.UL;
+                    else if (lastDir == Direction.RIGHT && currDir == Direction.LU)
+                        item.CurrentDirection = Direction.UR;
+                    ///Angle Right down
+                    else if (lastDir == Direction.DOWN && currDir == Direction.RIGHT)
+                        item.CurrentDirection = Direction.RD;
+                    else if (lastDir == Direction.RD && currDir == Direction.RIGHT)
+                        item.CurrentDirection = Direction.RD;
+                    else if (lastDir == Direction.LEFT && currDir == Direction.RD)
+                        item.CurrentDirection = Direction.DL;
+                    else if (lastDir == Direction.RIGHT && currDir == Direction.RD)
+                        item.CurrentDirection = Direction.DR;
+
+                    /////Angle Right UP
+                    else if (lastDir == Direction.UP && currDir == Direction.RIGHT)
+                        item.CurrentDirection = Direction.RU;
+                    else if (lastDir == Direction.RU && currDir == Direction.RIGHT)
+                        item.CurrentDirection = Direction.RU;
+                    else if (lastDir == Direction.LEFT && currDir == Direction.RU)
+                        item.CurrentDirection = Direction.UL;
+                    else if (lastDir == Direction.RIGHT && currDir == Direction.RU)
+                        item.CurrentDirection = Direction.UR;
+
+
+
+                    ///Simple
+                    else if (lastDir == Direction.RIGHT)
+                        item.CurrentDirection = Direction.RIGHT;
+                    else if (lastDir == Direction.UP)
+                        item.CurrentDirection = Direction.UP;
+                    else if (lastDir == Direction.DOWN)
+                        item.CurrentDirection = Direction.DOWN;
+                    else if (lastDir == Direction.LEFT)
+                        item.CurrentDirection = Direction.LEFT;
+
+
+
+
+
+                    //item.CurrentDirection = lastDir;
 
                     item.X = xlast;
                     item.Y = ylast;
@@ -113,6 +223,7 @@ namespace SnakeGame.Snake
                 }
                 else if (item is TailSnake)
                 {
+                    //Simple UP DOWN LEFT RIGH
                     if(lastDir == Direction.UP)
                         item.CurrentDirection = Direction.UP;
                     else if (lastDir == Direction.DOWN)

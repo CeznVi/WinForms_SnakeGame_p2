@@ -9,22 +9,9 @@ namespace SnakeGame.Snake
 {
     class HeadSnake : Segment, ISegmentBehavior
     {
-        //private Direction _direction;
-
-        //public Direction CurrentDirection
-        //{
-        //    get { return _direction; }
-
-        //    private set 
-        //    {
-        //        if(DirectionOperation.Check(value))
-        //            _direction = value;
-        //    }
-        //}
-
         public HeadSnake(int x, int y, int radius, Direction direction) : base(x, y, radius, direction)
         {
-            //CurrentDirection = direction;
+            
         }
 
         public void Draw(Graphics graphics)
@@ -87,8 +74,6 @@ namespace SnakeGame.Snake
             }
             return false;
 
-
-            //throw new NotImplementedException();
         }
 
     }
