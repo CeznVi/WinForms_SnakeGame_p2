@@ -83,6 +83,7 @@
     </Compile>
     <EmbeddedResource Include="Snake\GameResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>GameResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

@@ -41,7 +41,7 @@ namespace SnakeGame
 
             _snake = new Snake.Snake();
 
-            Food = new Food(_snake.Head.Radius);
+            Food = new Food(Snake.Head.Radius);
             ///НЕРАБОАТАТЕ
             //Food.Respawn(_gameFieldControl.Width, _gameFieldControl.Height, Snake);
         }
@@ -49,14 +49,21 @@ namespace SnakeGame
         private void _gameFieldControl_Paint(object sender, PaintEventArgs e)
         {
             _snake.Draw(e.Graphics);
-            /////
             Food.Draw(e.Graphics);
+
+            //Food.Respawn(gameFieldControl.Width,
+            //    gameFieldControl.Height,
+            //    Snake);
         }
 
         public void Update() 
         {
             _snake.Move();
-            //Food.Respawn();
+            Food.Respawn(
+                gameFieldControl.Width,
+                gameFieldControl.Height,
+                Snake);
+            
             _gameFieldControl.Refresh();
            
         }

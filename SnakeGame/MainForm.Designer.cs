@@ -47,7 +47,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip.Location = new System.Drawing.Point(0, 649);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(968, 22);
+            this.statusStrip.Size = new System.Drawing.Size(990, 22);
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -64,7 +64,7 @@
             this.фаToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(968, 24);
+            this.menuStrip.Size = new System.Drawing.Size(990, 24);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -78,7 +78,7 @@
             // 
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(968, 25);
+            this.toolStrip.Size = new System.Drawing.Size(990, 25);
             this.toolStrip.TabIndex = 3;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -88,7 +88,7 @@
             this.panelMainWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainWindow.Location = new System.Drawing.Point(0, 49);
             this.panelMainWindow.Name = "panelMainWindow";
-            this.panelMainWindow.Size = new System.Drawing.Size(968, 600);
+            this.panelMainWindow.Size = new System.Drawing.Size(990, 600);
             this.panelMainWindow.TabIndex = 4;
             // 
             // timer_updSnake
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 671);
+            this.ClientSize = new System.Drawing.Size(990, 671);
             this.Controls.Add(this.panelMainWindow);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);

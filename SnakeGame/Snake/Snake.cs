@@ -17,11 +17,11 @@ namespace SnakeGame.Snake
         {
             _snake = new List<Segment>();
 
-            _snake.Add(new HeadSnake(30,500,15,Direction.UP));
-            _snake.Add(new SegmentSnake(30, 530, 15, Direction.VERTICAL));
-            _snake.Add(new SegmentSnake(30, 560, 15, Direction.LU));
-            _snake.Add(new SegmentSnake(60, 560, 15, Direction.UL));
-            _snake.Add(new TailSnake(60, 590, 15, Direction.UP));
+            _snake.Add(new HeadSnake(60,60,15,Direction.UP));
+            _snake.Add(new SegmentSnake(60, 90, Head.Radius, Direction.UP));
+            //_snake.Add(new SegmentSnake(30, 560, 15, Direction.UP));
+            //_snake.Add(new SegmentSnake(60, 560, 15, Direction.UP));
+            _snake.Add(new TailSnake(60, 120, Head.Radius, Direction.UP));
         }
 
         public List<Segment> BodySnake

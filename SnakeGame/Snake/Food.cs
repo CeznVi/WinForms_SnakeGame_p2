@@ -36,31 +36,28 @@ namespace SnakeGame.Snake
 
         public void Respawn(int width, int hight, Snake snake)
         {
-            //не за пределами игрового поля!!++
-            //Координаті кратніе радиусу сегмента++
-            //не должна біть в теле змеи
-
-            int px; ; 
+            int px; 
             int py;
-
 
             bool isValidPosition = false;
 
             do
             {
-                px = _random.Next(Radius, width - Radius) / (Radius *2 ) * (Radius*2);
+                px = _random.Next(Radius, width - Radius) / (Radius * 2) * (Radius * 2);
                 py = _random.Next(Radius, hight - Radius) / (Radius * 2) * (Radius * 2);
+
+                bool isNoBodySnake = true;
 
                foreach(Segment item in snake.BodySnake)
                 {
                     if(item.X == px && item.Y == py)
                     {
-                        isValidPosition = false;
+                        isNoBodySnake = false;
                         break;
                     }
                 }
 
-               if(isValidPosition)
+               if(isNoBodySnake)
                 {
                     X = px;
                     Y = py;

@@ -63,29 +63,9 @@ namespace SnakeGame.Snake {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap apple {
-            get {
-                object obj = ResourceManager.GetObject("apple", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap body {
             get {
                 object obj = ResourceManager.GetObject("body", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap snake {
-            get {
-                object obj = ResourceManager.GetObject("snake", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
