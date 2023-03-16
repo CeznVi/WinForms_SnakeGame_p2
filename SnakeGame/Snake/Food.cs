@@ -37,8 +37,8 @@ namespace SnakeGame.Snake
 
             do
             {
-                px = _random.Next(Radius, width - Radius) / (Radius * 2) * (Radius * 2);
-                py = _random.Next(Radius, hight - Radius) / (Radius * 2) * (Radius * 2);
+                px = _random.Next(Radius *2, width - Radius) / (Radius * 2) * (Radius * 2);
+                py = _random.Next(Radius *2, hight - Radius) / (Radius * 2) * (Radius * 2);
 
                 bool isNoBodySnake = true;
 

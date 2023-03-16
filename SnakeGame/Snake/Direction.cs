@@ -26,14 +26,6 @@ namespace SnakeGame.Snake
         NULL
     }
 
-    enum ControlDirection
-    {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
-    }
-
     /// <summary>
     /// Статический клас для выполнения операций над Дирекшенами
     /// </summary>

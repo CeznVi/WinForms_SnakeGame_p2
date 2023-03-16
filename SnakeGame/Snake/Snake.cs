@@ -70,7 +70,6 @@ namespace SnakeGame.Snake
 
             foreach(var item in _snake) 
             {
-
                 currDir = item.CurrentDirection;
                 x = item.X;
                 y = item.Y;
@@ -89,17 +88,6 @@ namespace SnakeGame.Snake
                         item.X -= item.Radius * 2;
                     else if (currDir == Direction.RIGHT)
                         item.X += item.Radius * 2;
-
-
-                    //if (item.Y <= 0)
-                    //    item.Y = 585;
-                    //else if (item.Y >= 585)
-                    //    item.Y = 0;
-
-                    //else if (item.X >= 953)
-                    //    item.X = 0;
-                    //else if (item.X <= 0)
-                    //    item.X = 953;
 
                 }
                 else if(item is SegmentSnake)
@@ -195,7 +183,6 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.DL;
                     else if (lastDir == Direction.DR && currDir == Direction.RD)
                         item.CurrentDirection = Direction.DR;
-
                     /////Angle Right UP
                     else if (lastDir == Direction.UP && currDir == Direction.RIGHT)
                         item.CurrentDirection = Direction.RU;
@@ -209,8 +196,6 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.UL;
                     else if (lastDir == Direction.UR && currDir == Direction.RU)
                         item.CurrentDirection = Direction.UR;
-
-
                     ///Simple
                     else if (lastDir == Direction.RIGHT)
                         item.CurrentDirection = Direction.RIGHT;

@@ -9,38 +9,10 @@ namespace SnakeGame.Snake
 {
     class SegmentSnake : Segment, ISegmentBehavior
     {
-        ////Старая версия
-        //public SegmentSnake(int x, int y, int radius, Color color):base(x, y, radius)
-        //{
-        //    Color = color;
-        //}
-
-        //public void Draw(Graphics graphics)
-        //{
-        //    graphics.FillRectangle(new SolidBrush(this.Color),
-        //        this.X - Radius,
-        //        this.Y - Radius,
-        //        this.Radius *2,
-        //        this.Radius*2
-        //        );
-        //}
-
-        //private Direction _direction;
-
-        //public Direction CurrentDirection
-        //{
-        //    get { return _direction; }
-
-        //    private set
-        //    {
-        //        if (DirectionOperation.Check(value))
-        //            _direction = value;
-        //    }
-        //}
 
         public SegmentSnake(int x, int y, int radius, Direction direction) : base(x, y, radius, direction)
         {
-            //CurrentDirection = direction;
+            
         }
 
         public void Draw(Graphics graphics)
