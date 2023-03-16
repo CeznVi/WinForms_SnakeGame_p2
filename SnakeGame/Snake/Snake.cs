@@ -107,7 +107,7 @@ namespace SnakeGame.Snake
                     ///Angle UP Right
                     if (lastDir == Direction.RIGHT && currDir == Direction.UP)
                         item.CurrentDirection = Direction.UR;
-                    else if(lastDir == Direction.UR && currDir == Direction.UP)
+                    else if (lastDir == Direction.UR && currDir == Direction.UP)
                         item.CurrentDirection = Direction.UR;
                     else if (lastDir == Direction.DOWN && currDir == Direction.UR)
                         item.CurrentDirection = Direction.RD;
@@ -152,15 +152,10 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.LU;
                     else if (lastDir == Direction.DOWN && currDir == Direction.DL)
                         item.CurrentDirection = Direction.LD;
-
-
-
-
-
-
-
-
-
+                    else if (lastDir == Direction.LU && currDir == Direction.DL)
+                        item.CurrentDirection = Direction.LU;
+                    else if (lastDir == Direction.LD && currDir == Direction.DL)
+                        item.CurrentDirection = Direction.LD;
                     ///Angle Left down!!!!!!!!!!
                     else if (lastDir == Direction.DOWN && currDir == Direction.LEFT)
                         item.CurrentDirection = Direction.LD;
@@ -170,6 +165,10 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.DR;
                     else if (lastDir == Direction.LEFT && currDir == Direction.LD)
                         item.CurrentDirection = Direction.DL;
+                    else if (lastDir == Direction.DL && currDir == Direction.LD)
+                        item.CurrentDirection = Direction.DL;
+                    else if (lastDir == Direction.DR && currDir == Direction.LD)
+                        item.CurrentDirection = Direction.DR;
                     ///Angle Left UP
                     else if (lastDir == Direction.UP && currDir == Direction.LEFT)
                         item.CurrentDirection = Direction.LU;
@@ -179,6 +178,10 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.UL;
                     else if (lastDir == Direction.RIGHT && currDir == Direction.LU)
                         item.CurrentDirection = Direction.UR;
+                    else if (lastDir == Direction.UR && currDir == Direction.LU)
+                        item.CurrentDirection = Direction.UR;
+                    else if (lastDir == Direction.UL && currDir == Direction.LU)
+                        item.CurrentDirection = Direction.UL;
                     ///Angle Right down
                     else if (lastDir == Direction.DOWN && currDir == Direction.RIGHT)
                         item.CurrentDirection = Direction.RD;
@@ -187,6 +190,10 @@ namespace SnakeGame.Snake
                     else if (lastDir == Direction.LEFT && currDir == Direction.RD)
                         item.CurrentDirection = Direction.DL;
                     else if (lastDir == Direction.RIGHT && currDir == Direction.RD)
+                        item.CurrentDirection = Direction.DR;
+                    else if (lastDir == Direction.DL && currDir == Direction.RD)
+                        item.CurrentDirection = Direction.DL;
+                    else if (lastDir == Direction.DR && currDir == Direction.RD)
                         item.CurrentDirection = Direction.DR;
 
                     /////Angle Right UP
@@ -198,7 +205,10 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.UL;
                     else if (lastDir == Direction.RIGHT && currDir == Direction.RU)
                         item.CurrentDirection = Direction.UR;
-
+                    else if (lastDir == Direction.UL && currDir == Direction.RU)
+                        item.CurrentDirection = Direction.UL;
+                    else if (lastDir == Direction.UR && currDir == Direction.RU)
+                        item.CurrentDirection = Direction.UR;
 
 
                     ///Simple
