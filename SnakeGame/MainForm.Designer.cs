@@ -35,10 +35,22 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.фаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton_StartStop = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxAppleCount = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxAppleByNextLVL = new System.Windows.Forms.ToolStripTextBox();
             this.panelMainWindow = new System.Windows.Forms.Panel();
             this.timer_updSnake = new System.Windows.Forms.Timer(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxLVL = new System.Windows.Forms.ToolStripTextBox();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -76,15 +88,82 @@
             // 
             // toolStrip
             // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton_StartStop,
+            this.toolStripButton1,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.toolStripTextBoxAppleCount,
+            this.toolStripSeparator2,
+            this.toolStripLabel2,
+            this.toolStripTextBoxAppleByNextLVL,
+            this.toolStripSeparator3,
+            this.toolStripLabel3,
+            this.toolStripTextBoxLVL});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(990, 25);
             this.toolStrip.TabIndex = 3;
             this.toolStrip.Text = "toolStrip1";
+            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
+            // 
+            // toolStripButton_StartStop
+            // 
+            this.toolStripButton_StartStop.Checked = true;
+            this.toolStripButton_StartStop.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripButton_StartStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_StartStop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_StartStop.Image")));
+            this.toolStripButton_StartStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_StartStop.Name = "toolStripButton_StartStop";
+            this.toolStripButton_StartStop.Size = new System.Drawing.Size(42, 22);
+            this.toolStripButton_StartStop.Text = "Старт";
+            this.toolStripButton_StartStop.Click += new System.EventHandler(this.toolStripButton_StartStop_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(43, 22);
+            this.toolStripButton1.Text = "Пауза";
+            this.toolStripButton1.ToolTipText = "toolStripButtonPauseResume";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(92, 22);
+            this.toolStripLabel1.Text = "Сьедено яблок:";
+            // 
+            // toolStripTextBoxAppleCount
+            // 
+            this.toolStripTextBoxAppleCount.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripTextBoxAppleCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.toolStripTextBoxAppleCount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxAppleCount.Name = "toolStripTextBoxAppleCount";
+            this.toolStripTextBoxAppleCount.Size = new System.Drawing.Size(50, 25);
+            this.toolStripTextBoxAppleCount.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(172, 22);
+            this.toolStripLabel2.Text = "Яблок до следующего уровня";
+            // 
+            // toolStripTextBoxAppleByNextLVL
+            // 
+            this.toolStripTextBoxAppleByNextLVL.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripTextBoxAppleByNextLVL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.toolStripTextBoxAppleByNextLVL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxAppleByNextLVL.Name = "toolStripTextBoxAppleByNextLVL";
+            this.toolStripTextBoxAppleByNextLVL.Size = new System.Drawing.Size(50, 25);
+            this.toolStripTextBoxAppleByNextLVL.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelMainWindow
             // 
             this.panelMainWindow.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelMainWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelMainWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainWindow.Location = new System.Drawing.Point(0, 49);
             this.panelMainWindow.Name = "panelMainWindow";
@@ -95,6 +174,36 @@
             // 
             this.timer_updSnake.Interval = 1000;
             this.timer_updSnake.Tick += new System.EventHandler(this.timer_updSnake_Tick);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel3.Text = "Уровень:";
+            // 
+            // toolStripTextBoxLVL
+            // 
+            this.toolStripTextBoxLVL.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripTextBoxLVL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.toolStripTextBoxLVL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxLVL.Name = "toolStripTextBoxLVL";
+            this.toolStripTextBoxLVL.Size = new System.Drawing.Size(50, 25);
+            this.toolStripTextBoxLVL.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainForm
             // 
@@ -119,6 +228,8 @@
             this.statusStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,6 +244,17 @@
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.Panel panelMainWindow;
         private System.Windows.Forms.Timer timer_updSnake;
+        private System.Windows.Forms.ToolStripButton toolStripButton_StartStop;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxAppleCount;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxAppleByNextLVL;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxLVL;
     }
 }
 

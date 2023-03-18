@@ -1,4 +1,5 @@
-﻿using SnakeGame.Snake;
+﻿using SnakeGame.Game;
+using SnakeGame.Snake;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,18 @@ namespace SnakeGame
 {
     public partial class MainForm : Form
     {
+        private bool isGameStart = false;
+        private bool isGamePaused = false;
+
         private GameField _gameField;
         private int keyPressedCount = 0;
 
         public MainForm()
         {
             InitializeComponent();
-            _gameField = new GameField();
-            panelMainWindow.Controls.Add(_gameField.gameFieldControl);
-            timer_updSnake.Enabled = true;
-            timer_updSnake.Interval = _gameField.GameTickTime;
+            GameScene.Start();
+            toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
+
         }
 
 
@@ -96,6 +99,53 @@ namespace SnakeGame
                             break;
                         }
                 }
+            }
+        }
+
+        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton_StartStop_Click(object sender, EventArgs e)
+        {
+            if (isGameStart == false)
+            {
+                isGameStart = true;
+                toolStripButton_StartStop.Text = "Стоп";
+                toolStripStatusLabel1.Text = "Идет игра";
+
+                _gameField = new GameField();
+                panelMainWindow.Controls.Add(_gameField.gameFieldControl);
+                timer_updSnake.Enabled = true;
+                timer_updSnake.Interval = _gameField.GameTickTime;
+            }
+            else
+            {
+                isGameStart = false;
+                toolStripButton_StartStop.Text = "Сарт";
+                toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
+                panelMainWindow.Controls.Clear();
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (isGameStart == false)
+            {
+                isGameStart = true;
+                toolStripButton_StartStop.Text = "Продолжить";
+                toolStripStatusLabel1.Text = "Игра на паузе";
+                timer_updSnake.Enabled = false;
+
+
+            }
+            else
+            {
+                isGameStart = false;
+                toolStripButton_StartStop.Text = "Пауза";
+                toolStripStatusLabel1.Text = "Идет игра";
+                timer_updSnake.Enabled = true;
             }
         }
     }
