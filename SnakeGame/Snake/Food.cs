@@ -30,15 +30,15 @@ namespace SnakeGame.Snake
 
         public void Respawn(int width, int hight, Snake snake)
         {
-            int px; 
-            int py;
+            int px = 0; 
+            int py = 0;
 
             bool isValidPosition = false;
 
             do
             {
-                px = _random.Next(Radius *2, width - Radius) / (Radius * 2) * (Radius * 2);
-                py = _random.Next(Radius *2, hight - Radius) / (Radius * 2) * (Radius * 2);
+                px = _random.Next(Radius*2,width - Radius) / (Radius * 2) * (Radius * 2);
+                py = _random.Next(Radius*2, hight - Radius) / (Radius * 2) * (Radius * 2);
 
                 bool isNoBodySnake = true;
 

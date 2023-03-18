@@ -17,10 +17,9 @@ namespace SnakeGame.Snake
         {
             _snake = new List<Segment>();
 
-            _snake.Add(new HeadSnake(60,60,15,Direction.UP));
-            _snake.Add(new SegmentSnake(60, 90, Head.Radius, Direction.UP));
-            _snake.Add(new SegmentSnake(60, 120, Head.Radius, Direction.UP));
-            _snake.Add(new TailSnake(60, 150, Head.Radius, Direction.UP));
+            _snake.Add(new HeadSnake(120,120,15,Direction.UP));
+            _snake.Add(new SegmentSnake(Head.X, Head.Y+2*Head.Radius, Head.Radius, Direction.UP));
+            _snake.Add(new TailSnake(Head.X, Head.Y + 4 * Head.Radius, Head.Radius, Direction.UP));
         }
 
         public List<Segment> BodySnake
@@ -207,11 +206,6 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.LEFT;
 
 
-
-
-
-                    //item.CurrentDirection = lastDir;
-
                     item.X = xlast;
                     item.Y = ylast;
 
@@ -262,6 +256,18 @@ namespace SnakeGame.Snake
 
         }
 
- 
+        public void Grow()
+        {
+            Segment tail = _snake.ElementAt(_snake.Count - 1);
+            
+            _snake.Remove(tail);
+
+            _snake.Add(
+             new SegmentSnake(tail.X, tail.Y, Head.Radius, tail.CurrentDirection)
+            );
+            _snake.Add(tail);
+
+        }
+
     }
 }

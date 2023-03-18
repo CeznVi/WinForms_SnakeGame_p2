@@ -76,5 +76,9 @@ namespace SnakeGame.Snake
 
         }
 
+        public bool IsCanEath(Food food)
+        {
+            return food.X == X && food.Y == Y ? true : false;
+        }
     }
 }

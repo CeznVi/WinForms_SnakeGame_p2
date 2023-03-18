@@ -35,8 +35,8 @@ namespace SnakeGame.Snake
         public Segment() 
         { 
             Radius = 15;
-            X = 15;
-            Y = 15;
+            X = 30;
+            Y = 30;
             CurrentDirection = Direction.UP;
         }
 

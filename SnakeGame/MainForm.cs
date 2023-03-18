@@ -14,7 +14,7 @@ namespace SnakeGame
     public partial class MainForm : Form
     {
         private GameField _gameField;
-        
+        private int keyPressedCount = 0;
 
         public MainForm()
         {
@@ -39,49 +39,64 @@ namespace SnakeGame
 
         private void timer_updSnake_Tick(object sender, EventArgs e)
         {
-            if(_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
+            keyPressedCount = 0;
+
+            if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
+            {
                 _gameField.Update();
+            }
             
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            
-            switch (e.KeyCode) 
-            {   
+            if (keyPressedCount == 0)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                    case Keys.A:
+                        {
 
-                case Keys.Left:
-                case Keys.A:
-                    {
-                        if(_gameField.Snake.Head.CurrentDirection != Direction.RIGHT)
-                           _gameField.Snake.Head.CurrentDirection = _gameField.Snake.Head.CurrentDirection = Snake.Direction.LEFT;
-                        break;
-                    }
-                case Keys.Right:
-                case Keys.D:
-                    {
-                        if (_gameField.Snake.Head.CurrentDirection != Direction.LEFT)
-                            _gameField.Snake.Head.CurrentDirection = Snake.Direction.RIGHT;
-                        break;
-                    }
-                case Keys.W:
-                case Keys.Up:
-                    {
-                        if (_gameField.Snake.Head.CurrentDirection != Direction.DOWN)
-                            _gameField.Snake.Head.CurrentDirection = Snake.Direction.UP;
-                        break;
-                    }
-                case Keys.S:
-                case Keys.Down:
-                    {
-                        if (_gameField.Snake.Head.CurrentDirection != Direction.UP)
-                            _gameField.Snake.Head.CurrentDirection = Snake.Direction.DOWN;
-                         break;
-                    }
+                            if (_gameField.Snake.Head.CurrentDirection != Direction.RIGHT)
+                            {
+                                _gameField.Snake.Head.CurrentDirection = _gameField.Snake.Head.CurrentDirection = Snake.Direction.LEFT;
+                                keyPressedCount++;
+                            }
+                            break;
+                        }
+                    case Keys.Right:
+                    case Keys.D:
+                        {
+                            if (_gameField.Snake.Head.CurrentDirection != Direction.LEFT)
+                            {
+                                _gameField.Snake.Head.CurrentDirection = Snake.Direction.RIGHT;
+                                keyPressedCount++;
+                            }
+                            break;
+                        }
+                    case Keys.W:
+                    case Keys.Up:
+                        {
+                            if (_gameField.Snake.Head.CurrentDirection != Direction.DOWN)
+                            {
+                                _gameField.Snake.Head.CurrentDirection = Snake.Direction.UP;
+                                keyPressedCount++;
+                            }
+                            break;
+                        }
+                    case Keys.S:
+                    case Keys.Down:
+                        {
+                            if (_gameField.Snake.Head.CurrentDirection != Direction.UP)
+                            {
+                                _gameField.Snake.Head.CurrentDirection = Snake.Direction.DOWN;
+                                keyPressedCount++;
+                            }
+                            break;
+                        }
+                }
             }
-
-
-
         }
     }
 }

@@ -11,7 +11,9 @@ namespace SnakeGame
 {
     class GameField
     {
-        public int GameTickTime = 1000;
+        public int GameTickTime = 600;
+
+
         private PictureBox _gameFieldControl;
         
         public Food Food { get; set; }
@@ -42,14 +44,12 @@ namespace SnakeGame
             _snake = new Snake.Snake();
 
             Food = new Food(Snake.Head.Radius);
+
         }
 
         private void _gameFieldControl_Paint(object sender, PaintEventArgs e)
         {
             _snake.Draw(e.Graphics);
-            Food.Respawn(gameFieldControl.Width,
-                         gameFieldControl.Height,
-                         Snake);
             Food.Draw(e.Graphics);
 
         }
@@ -57,11 +57,20 @@ namespace SnakeGame
         public void Update() 
         {
             _snake.Move();
-            Food.Respawn(
-                gameFieldControl.Width,
-                gameFieldControl.Height,
-                Snake);
+
+            if(Snake.Head.IsCanEath(Food)) 
+            {
+                Snake.Grow();
+                Food.Respawn(
+                             gameFieldControl.Width,
+                             gameFieldControl.Height,
+                             Snake);
+            }
+
+
+
             
+
             _gameFieldControl.Refresh();
            
         }
