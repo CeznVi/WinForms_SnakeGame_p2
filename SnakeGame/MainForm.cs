@@ -47,8 +47,8 @@ namespace SnakeGame
             toolStripTextBoxAppleByNextLVL.Text = _gameField.appleCountHowMany.ToString();
 
 
-            if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
-            {
+            //if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
+            //{
                 if (_gameField.Snake.isEatingHimSelf() == false && _gameField.Snake.isEatingIron(_gameField.Irons) == false)
                 {
                     toolStripTextBoxAppleCount.Text = _gameField.GetAppleCountEating().ToString();
@@ -60,7 +60,7 @@ namespace SnakeGame
 
                     timer_updSnake.Stop();
                     isGameStart = false;
-                    toolStripButton_StartStop.Text = "Сарт";
+                    toolStripButton_StartStop.Text = "Старт";
                     toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
                     panelMainWindow.Controls.Clear();
                     toolStripButton1.Visible = false;
@@ -68,7 +68,7 @@ namespace SnakeGame
 
                     MessageBox.Show("Game over", "Уведомление");
                 }
-            }
+            //}
 
         }
 
@@ -203,6 +203,31 @@ namespace SnakeGame
                              _gameField.Snake,
                              _gameField.Irons);
                 
+            }
+        }
+
+        private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (isGameStart == false)
+            {
+                isGameStart = true;
+                toolStripButton_StartStop.Text = "Стоп";
+                toolStripStatusLabel1.Text = "Идет игра";
+                toolStripButton_StartStop.Checked = false;
+                toolStripButton1.Visible = true;
+
+                _gameField = new GameField(timer_updApple, timer_updSnake);
+                panelMainWindow.Controls.Add(_gameField.gameFieldControl);
+                timer_updSnake.Enabled = true;
+                timer_updSnake.Interval = _gameField.GameTickTime;
+
+                timer_updApple.Enabled = true;
+                toolStripButton_StartStop.BackColor = Color.Red;
+            }
+            else
+            {
+                toolStripButton_StartStop_Click(sender, e);
             }
         }
     }

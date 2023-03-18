@@ -75,7 +75,8 @@ namespace SnakeGame
 
         public void Update() 
         {
-            _snake.Move();
+            _snake.Move(gameFieldControl.Width,
+                             gameFieldControl.Height);
             appleCountEating = _snake.eatAppleCount();
 
             if (Snake.Head.IsCanEath(Food))

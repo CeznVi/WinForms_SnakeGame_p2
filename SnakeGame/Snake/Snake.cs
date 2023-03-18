@@ -59,7 +59,7 @@ namespace SnakeGame.Snake
             }
         }
 
-        public void Move()
+        public void Move(int w, int h)
         {
             int x = 0, y = 0;
             int xlast = 0, ylast = 0;
@@ -75,7 +75,16 @@ namespace SnakeGame.Snake
 
                 if (item is HeadSnake) 
                 {
-                     
+
+                    if (item.X > w)
+                        item.X = 0;
+                    else if(item.X < item.Radius)
+                        item.X = w;
+                    else if (item.Y > h)
+                        item.Y = 0;
+                    else if (item.Y < item.Radius)
+                        item.Y = h;
+
                     xlast = item.X;
                     ylast = item.Y;
 

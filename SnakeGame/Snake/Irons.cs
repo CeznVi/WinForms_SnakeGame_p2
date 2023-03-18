@@ -30,8 +30,6 @@ namespace SnakeGame.Snake
                     item.Draw(graphics);
             }
         }
-        
-
 
 
         public void AddIron(int width, int hight, Snake snake, Food food)
