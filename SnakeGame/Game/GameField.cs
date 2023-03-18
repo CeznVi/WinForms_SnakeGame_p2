@@ -11,6 +11,8 @@ namespace SnakeGame
 {
     class GameField
     {
+        private Timer _timerUpdApple;
+
         public int GameTickTime = 600;
         private int appleCountEating = 0;
 
@@ -34,12 +36,14 @@ namespace SnakeGame
             get { return _gameFieldControl; }
         }
 
-        public GameField()
+        public GameField(Timer t)
         {
             _gameFieldControl = new PictureBox();
             _gameFieldControl.BackColor = Color.LightGray;
             _gameFieldControl.Dock = DockStyle.Fill;
             _gameFieldControl.Paint += _gameFieldControl_Paint;
+            
+            _timerUpdApple = t;
 
             _snake = new Snake.Snake();
 
@@ -64,18 +68,20 @@ namespace SnakeGame
             _snake.Move();
             appleCountEating = _snake.eatAppleCount();
 
-            if(Snake.Head.IsCanEath(Food)) 
+
+
+            if (Snake.Head.IsCanEath(Food))
             {
                 Snake.Grow();
                 Food.Respawn(
                              gameFieldControl.Width,
                              gameFieldControl.Height,
                              Snake);
+                
+                _timerUpdApple.Stop();
+                _timerUpdApple.Start();
             }
 
-
-
-            
 
             _gameFieldControl.Refresh();
            

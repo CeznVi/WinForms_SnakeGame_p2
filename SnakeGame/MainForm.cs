@@ -45,6 +45,8 @@ namespace SnakeGame
         {
             keyPressedCount = 0;
 
+
+
             if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
             {
                 if (_gameField.Snake.isEatingHimSelf() == false)
@@ -63,10 +65,10 @@ namespace SnakeGame
                     toolStripButton1.Visible = false;
                     toolStripButton_StartStop.BackColor = Color.White;
 
-                    MessageBox.Show("Game over","Уведомление");
+                    MessageBox.Show("Game over", "Уведомление");
                 }
             }
-            
+
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -138,10 +140,12 @@ namespace SnakeGame
                 toolStripButton_StartStop.Checked = false;
                 toolStripButton1.Visible = true;
 
-                _gameField = new GameField();
+                _gameField = new GameField(timer_updApple);
                 panelMainWindow.Controls.Add(_gameField.gameFieldControl);
                 timer_updSnake.Enabled = true;
                 timer_updSnake.Interval = _gameField.GameTickTime;
+
+                timer_updApple.Enabled = true;
                 toolStripButton_StartStop.BackColor = Color.Red;
 
             }
@@ -171,6 +175,7 @@ namespace SnakeGame
                     toolStripButton1.Text = "Продолжить";
                     toolStripStatusLabel1.Text = "Игра на паузе";
                     timer_updSnake.Enabled = false;
+                    timer_updApple.Enabled = false;
                     toolStripButton1.ToolTipText = "Нажмите чтобы продолжить игру";
                     toolStripButton1.BackColor = Color.LightGreen;
                 }
@@ -181,9 +186,21 @@ namespace SnakeGame
                     toolStripButton1.Text = "Пауза";
                     toolStripStatusLabel1.Text = "Идет игра";
                     timer_updSnake.Enabled = true;
+                    timer_updApple.Enabled = true;
                     toolStripButton1.ToolTipText = "Нажмите чтобы поставить игру на паузу";
                     toolStripButton1.BackColor = Color.White;
                 }
+            }
+        }
+
+        private void timer_updApple_Tick(object sender, EventArgs e)
+        {
+            if (isGameStart == true)
+            {
+                _gameField.Food.Respawn(_gameField.gameFieldControl.Width,
+                             _gameField.gameFieldControl.Height,
+                             _gameField.Snake);
+                
             }
         }
     }
