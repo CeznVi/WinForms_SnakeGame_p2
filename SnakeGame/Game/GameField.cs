@@ -12,6 +12,8 @@ namespace SnakeGame
     class GameField
     {
         private Timer _timerUpdApple;
+        private Timer _timerUpdSnake;
+        
 
         public int GameTickTime = 600;
         private int appleCountEating = 0;
@@ -19,6 +21,10 @@ namespace SnakeGame
         private PictureBox _gameFieldControl;
         
         public Food Food { get; set; }
+        public int Lvl { get; set; }
+
+        public int appleCountHowMany = 4;
+
 
         private Snake.Snake _snake;
 
@@ -36,19 +42,19 @@ namespace SnakeGame
             get { return _gameFieldControl; }
         }
 
-        public GameField(Timer t)
+        public GameField(Timer t, Timer timerUpdSnake)
         {
             _gameFieldControl = new PictureBox();
             _gameFieldControl.BackColor = Color.LightGray;
             _gameFieldControl.Dock = DockStyle.Fill;
             _gameFieldControl.Paint += _gameFieldControl_Paint;
-            
+
             _timerUpdApple = t;
 
             _snake = new Snake.Snake();
 
             Food = new Food(Snake.Head.Radius);
-
+            _timerUpdSnake = timerUpdSnake;
         }
 
         private void _gameFieldControl_Paint(object sender, PaintEventArgs e)
@@ -68,8 +74,6 @@ namespace SnakeGame
             _snake.Move();
             appleCountEating = _snake.eatAppleCount();
 
-
-
             if (Snake.Head.IsCanEath(Food))
             {
                 Snake.Grow();
@@ -80,6 +84,23 @@ namespace SnakeGame
                 
                 _timerUpdApple.Stop();
                 _timerUpdApple.Start();
+                appleCountHowMany--;
+
+
+                if (appleCountEating % 3 == 0 && appleCountEating > 0)
+                {
+                    Lvl++;
+                    
+
+                    if (GameTickTime >= 30)
+                    {
+                        GameTickTime -= 25;
+                        _timerUpdSnake.Interval = GameTickTime;
+                    }
+                }
+
+                if (appleCountHowMany == 0)
+                    appleCountHowMany = 4;
             }
 
 

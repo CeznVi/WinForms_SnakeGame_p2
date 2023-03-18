@@ -44,6 +44,8 @@ namespace SnakeGame
         private void timer_updSnake_Tick(object sender, EventArgs e)
         {
             keyPressedCount = 0;
+            toolStripTextBoxAppleByNextLVL.Text = _gameField.appleCountHowMany.ToString();
+
 
 
 
@@ -52,6 +54,7 @@ namespace SnakeGame
                 if (_gameField.Snake.isEatingHimSelf() == false)
                 {
                     toolStripTextBoxAppleCount.Text = _gameField.GetAppleCountEating().ToString();
+                    toolStripTextBoxLVL.Text = _gameField.Lvl.ToString();
                     _gameField.Update();
                 }
                 else
@@ -130,7 +133,8 @@ namespace SnakeGame
         private void toolStripButton_StartStop_Click(object sender, EventArgs e)
         {
             toolStripTextBoxAppleCount.Text = "0";
-
+            toolStripTextBoxLVL.Text = "0";
+            toolStripTextBoxAppleByNextLVL.Text = "-=-";
 
             if (isGameStart == false)
             {
@@ -140,14 +144,14 @@ namespace SnakeGame
                 toolStripButton_StartStop.Checked = false;
                 toolStripButton1.Visible = true;
 
-                _gameField = new GameField(timer_updApple);
+                _gameField = new GameField(timer_updApple, timer_updSnake);
                 panelMainWindow.Controls.Add(_gameField.gameFieldControl);
                 timer_updSnake.Enabled = true;
                 timer_updSnake.Interval = _gameField.GameTickTime;
 
                 timer_updApple.Enabled = true;
                 toolStripButton_StartStop.BackColor = Color.Red;
-
+                
             }
             else
             {
@@ -181,7 +185,6 @@ namespace SnakeGame
                 }
                 else
                 {
-
                     isGamePaused = false;
                     toolStripButton1.Text = "Пауза";
                     toolStripStatusLabel1.Text = "Идет игра";
