@@ -28,7 +28,7 @@ namespace SnakeGame.Snake
 
         }
 
-        public void Respawn(int width, int hight, Snake snake)
+        public void Respawn(int width, int hight, Snake snake, Irons irons)
         {
             int px = 0; 
             int py = 0;
@@ -51,7 +51,18 @@ namespace SnakeGame.Snake
                     }
                 }
 
-               if(isNoBodySnake)
+                bool isNoIrons = true;
+
+                foreach (Iron item in irons.irons)
+                {
+                    if (item.X == px && item.Y == py)
+                    {
+                        isNoIrons = false;
+                        break;
+                    }
+                }
+
+                if (isNoBodySnake && isNoIrons)
                 {
                     X = px;
                     Y = py;

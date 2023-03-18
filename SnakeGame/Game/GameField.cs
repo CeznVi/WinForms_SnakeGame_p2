@@ -13,14 +13,15 @@ namespace SnakeGame
     {
         private Timer _timerUpdApple;
         private Timer _timerUpdSnake;
-        
 
+        
         public int GameTickTime = 600;
         private int appleCountEating = 0;
 
         private PictureBox _gameFieldControl;
         
         public Food Food { get; set; }
+        public Irons Irons { get; set; }
         public int Lvl { get; set; }
 
         public int appleCountHowMany = 4;
@@ -54,6 +55,9 @@ namespace SnakeGame
             _snake = new Snake.Snake();
 
             Food = new Food(Snake.Head.Radius);
+
+            Irons = new Irons();
+
             _timerUpdSnake = timerUpdSnake;
         }
 
@@ -61,7 +65,7 @@ namespace SnakeGame
         {
             _snake.Draw(e.Graphics);
             Food.Draw(e.Graphics);
-
+            Irons.Draw(e.Graphics);
         }
 
         public int GetAppleCountEating()
@@ -80,7 +84,8 @@ namespace SnakeGame
                 Food.Respawn(
                              gameFieldControl.Width,
                              gameFieldControl.Height,
-                             Snake);
+                             Snake,
+                             Irons);
                 
                 _timerUpdApple.Stop();
                 _timerUpdApple.Start();
@@ -90,7 +95,11 @@ namespace SnakeGame
                 if (appleCountEating % 3 == 0 && appleCountEating > 0)
                 {
                     Lvl++;
-                    
+
+                    Irons.AddIron(gameFieldControl.Width,
+                             gameFieldControl.Height,
+                             Snake,
+                             Food);
 
                     if (GameTickTime >= 30)
                     {

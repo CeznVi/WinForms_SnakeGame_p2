@@ -47,8 +47,6 @@ namespace SnakeGame
             toolStripTextBoxAppleByNextLVL.Text = _gameField.appleCountHowMany.ToString();
 
 
-
-
             if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
             {
                 if (_gameField.Snake.isEatingHimSelf() == false)
@@ -202,7 +200,8 @@ namespace SnakeGame
             {
                 _gameField.Food.Respawn(_gameField.gameFieldControl.Width,
                              _gameField.gameFieldControl.Height,
-                             _gameField.Snake);
+                             _gameField.Snake,
+                             _gameField.Irons);
                 
             }
         }

@@ -66,6 +66,7 @@
     <Compile Include="Snake\HeadSnake.cs" />
     <Compile Include="Snake\ImageAction.cs" />
     <Compile Include="Snake\Iron.cs" />
+    <Compile Include="Snake\Irons.cs" />
     <Compile Include="Snake\ISegmentBehavior.cs" />
     <Compile Include="Snake\Segment.cs" />
     <Compile Include="Snake\SegmentSnake.cs" />
