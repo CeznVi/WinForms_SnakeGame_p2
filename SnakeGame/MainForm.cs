@@ -23,7 +23,7 @@ namespace SnakeGame
         public MainForm()
         {
             InitializeComponent();
-            GameScene.Start();
+            //GameScene.Start();
             toolStripButton1.Visible = false;
             toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
 
@@ -47,8 +47,25 @@ namespace SnakeGame
 
             if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
             {
-                toolStripTextBoxAppleCount.Text = _gameField.GetAppleCountEating().ToString();
-                _gameField.Update();
+                if (_gameField.Snake.isEatingHimSelf() == false)
+                {
+                    toolStripTextBoxAppleCount.Text = _gameField.GetAppleCountEating().ToString();
+                    _gameField.Update();
+                }
+                else
+                {
+                    timer_updSnake.Stop();
+                    isGameStart = false;
+                    toolStripButton_StartStop.Text = "Сарт";
+                    toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
+                    panelMainWindow.Controls.Clear();
+                    toolStripButton1.Visible = false;
+                    toolStripButton_StartStop.BackColor = Color.White;
+
+                    MessageBox.Show("Game over",
+                                    "Уведомление"                                    //MessageBoxButtons.OK
+                                    );
+                }
             }
             
         }

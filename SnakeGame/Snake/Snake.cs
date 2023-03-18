@@ -263,7 +263,7 @@ namespace SnakeGame.Snake
             _snake.Remove(tail);
 
             _snake.Add(
-             new SegmentSnake(tail.X, tail.Y, Head.Radius, tail.CurrentDirection)
+             new SegmentSnake(tail.X, tail.Y, Head.Radius, _snake[_snake.Count -1].CurrentDirection)
             );
             _snake.Add(tail);
 
@@ -280,5 +280,25 @@ namespace SnakeGame.Snake
 
             return count;
         }
+
+        public bool isEatingHimSelf()
+        {
+            bool isEating = false;
+
+            foreach (var item in _snake)
+            {
+                if(item is SegmentSnake || item is TailSnake)
+                {
+                    if (Head.X == item.X && Head.Y == item.Y)
+                    {
+                        isEating = true;
+                        break;
+                    }
+                }
+            }
+            return isEating;
+        }
+
+
     }
 }

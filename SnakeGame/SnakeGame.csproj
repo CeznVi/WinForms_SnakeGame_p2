@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Snake\HeadSnake.cs" />
     <Compile Include="Snake\ImageAction.cs" />
+    <Compile Include="Snake\Iron.cs" />
     <Compile Include="Snake\ISegmentBehavior.cs" />
     <Compile Include="Snake\Segment.cs" />
     <Compile Include="Snake\SegmentSnake.cs" />
@@ -114,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image\snake-head.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image\Iron.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
