@@ -109,25 +109,27 @@
             // 
             // toolStripButton_StartStop
             // 
-            this.toolStripButton_StartStop.Checked = true;
-            this.toolStripButton_StartStop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripButton_StartStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton_StartStop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_StartStop.Image")));
             this.toolStripButton_StartStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_StartStop.Name = "toolStripButton_StartStop";
-            this.toolStripButton_StartStop.Size = new System.Drawing.Size(42, 22);
+            this.toolStripButton_StartStop.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.toolStripButton_StartStop.Size = new System.Drawing.Size(52, 22);
             this.toolStripButton_StartStop.Text = "Старт";
             this.toolStripButton_StartStop.Click += new System.EventHandler(this.toolStripButton_StartStop_Click);
             // 
             // toolStripButton1
             // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(43, 22);
+            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.toolStripButton1.Size = new System.Drawing.Size(80, 22);
             this.toolStripButton1.Text = "Пауза";
-            this.toolStripButton1.ToolTipText = "toolStripButtonPauseResume";
+            this.toolStripButton1.ToolTipText = "\r\n";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripLabel1
@@ -142,6 +144,7 @@
             this.toolStripTextBoxAppleCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.toolStripTextBoxAppleCount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxAppleCount.Name = "toolStripTextBoxAppleCount";
+            this.toolStripTextBoxAppleCount.ReadOnly = true;
             this.toolStripTextBoxAppleCount.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBoxAppleCount.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -157,6 +160,7 @@
             this.toolStripTextBoxAppleByNextLVL.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.toolStripTextBoxAppleByNextLVL.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxAppleByNextLVL.Name = "toolStripTextBoxAppleByNextLVL";
+            this.toolStripTextBoxAppleByNextLVL.ReadOnly = true;
             this.toolStripTextBoxAppleByNextLVL.Size = new System.Drawing.Size(50, 25);
             this.toolStripTextBoxAppleByNextLVL.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -172,7 +176,7 @@
             // 
             // timer_updSnake
             // 
-            this.timer_updSnake.Interval = 1000;
+            this.timer_updSnake.Interval = 500;
             this.timer_updSnake.Tick += new System.EventHandler(this.timer_updSnake_Tick);
             // 
             // toolStripSeparator1

@@ -12,7 +12,7 @@ namespace SnakeGame
     class GameField
     {
         public int GameTickTime = 600;
-
+        private int appleCountEating = 0;
 
         private PictureBox _gameFieldControl;
         
@@ -54,9 +54,15 @@ namespace SnakeGame
 
         }
 
+        public int GetAppleCountEating()
+        {
+            return appleCountEating;
+        }
+
         public void Update() 
         {
             _snake.Move();
+            appleCountEating = _snake.eatAppleCount();
 
             if(Snake.Head.IsCanEath(Food)) 
             {

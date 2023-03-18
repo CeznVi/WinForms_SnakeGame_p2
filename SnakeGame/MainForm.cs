@@ -24,6 +24,7 @@ namespace SnakeGame
         {
             InitializeComponent();
             GameScene.Start();
+            toolStripButton1.Visible = false;
             toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
 
         }
@@ -46,6 +47,7 @@ namespace SnakeGame
 
             if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
             {
+                toolStripTextBoxAppleCount.Text = _gameField.GetAppleCountEating().ToString();
                 _gameField.Update();
             }
             
@@ -109,16 +111,23 @@ namespace SnakeGame
 
         private void toolStripButton_StartStop_Click(object sender, EventArgs e)
         {
+            toolStripTextBoxAppleCount.Text = "0";
+
+
             if (isGameStart == false)
             {
                 isGameStart = true;
                 toolStripButton_StartStop.Text = "Стоп";
                 toolStripStatusLabel1.Text = "Идет игра";
+                toolStripButton_StartStop.Checked = false;
+                toolStripButton1.Visible = true;
 
                 _gameField = new GameField();
                 panelMainWindow.Controls.Add(_gameField.gameFieldControl);
                 timer_updSnake.Enabled = true;
                 timer_updSnake.Interval = _gameField.GameTickTime;
+                toolStripButton_StartStop.BackColor = Color.Red;
+
             }
             else
             {
@@ -126,26 +135,39 @@ namespace SnakeGame
                 toolStripButton_StartStop.Text = "Сарт";
                 toolStripStatusLabel1.Text = "Для начала игры нажмите старт";
                 panelMainWindow.Controls.Clear();
+                toolStripButton1.Visible = false;
+                isGamePaused = false;
+                toolStripButton1.Text = "Пауза";
+                toolStripButton1.ToolTipText = "Нажмите чтобы поставить игру на паузу";
+                toolStripButton_StartStop.BackColor = Color.White;
+                toolStripButton1.BackColor = Color.White;
             }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if (isGameStart == false)
-            {
-                isGameStart = true;
-                toolStripButton_StartStop.Text = "Продолжить";
-                toolStripStatusLabel1.Text = "Игра на паузе";
-                timer_updSnake.Enabled = false;
 
-
-            }
-            else
+            if (isGameStart == true)
             {
-                isGameStart = false;
-                toolStripButton_StartStop.Text = "Пауза";
-                toolStripStatusLabel1.Text = "Идет игра";
-                timer_updSnake.Enabled = true;
+                if (isGamePaused == false)
+                {
+                    isGamePaused = true;
+                    toolStripButton1.Text = "Продолжить";
+                    toolStripStatusLabel1.Text = "Игра на паузе";
+                    timer_updSnake.Enabled = false;
+                    toolStripButton1.ToolTipText = "Нажмите чтобы продолжить игру";
+                    toolStripButton1.BackColor = Color.LightGreen;
+                }
+                else
+                {
+
+                    isGamePaused = false;
+                    toolStripButton1.Text = "Пауза";
+                    toolStripStatusLabel1.Text = "Идет игра";
+                    timer_updSnake.Enabled = true;
+                    toolStripButton1.ToolTipText = "Нажмите чтобы поставить игру на паузу";
+                    toolStripButton1.BackColor = Color.White;
+                }
             }
         }
     }

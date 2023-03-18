@@ -269,5 +269,16 @@ namespace SnakeGame.Snake
 
         }
 
+        public int eatAppleCount()
+        {
+            int count = -1;
+            foreach (var item in _snake)
+            {
+                if(item is SegmentSnake)
+                    count++;
+            }
+
+            return count;
+        }
     }
 }
