@@ -299,6 +299,26 @@ namespace SnakeGame.Snake
             return isEating;
         }
 
+        public bool isEatingIron(Irons irons)
+        {
+
+            bool isEating = false;
+
+            if (irons.irons.Count == 0)
+                return false;
+
+            foreach (Iron item in irons.irons)
+            {
+                    if (Head.X == item.X && Head.Y == item.Y)
+                    {
+                        isEating = true;
+                        break;
+                    }
+                
+            }
+            return isEating;
+        }
+
 
     }
 }

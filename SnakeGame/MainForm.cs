@@ -49,7 +49,7 @@ namespace SnakeGame
 
             if (_gameField.Snake.Head.isCanMove(_gameField.gameFieldControl.Width, _gameField.gameFieldControl.Height))
             {
-                if (_gameField.Snake.isEatingHimSelf() == false)
+                if (_gameField.Snake.isEatingHimSelf() == false && _gameField.Snake.isEatingIron(_gameField.Irons) == false)
                 {
                     toolStripTextBoxAppleCount.Text = _gameField.GetAppleCountEating().ToString();
                     toolStripTextBoxLVL.Text = _gameField.Lvl.ToString();
