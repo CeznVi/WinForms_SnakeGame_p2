@@ -54,6 +54,7 @@ namespace SnakeGame
                 }
                 else
                 {
+
                     timer_updSnake.Stop();
                     isGameStart = false;
                     toolStripButton_StartStop.Text = "Сарт";
@@ -62,9 +63,7 @@ namespace SnakeGame
                     toolStripButton1.Visible = false;
                     toolStripButton_StartStop.BackColor = Color.White;
 
-                    MessageBox.Show("Game over",
-                                    "Уведомление"                                    //MessageBoxButtons.OK
-                                    );
+                    MessageBox.Show("Game over","Уведомление");
                 }
             }
             
